@@ -89,48 +89,49 @@ const siteData = {
 
   contactEmail: "dikshantthakur12@gmail.com",
 
-  education: [
-    {
-      title: {
-        en: "University of Petroleum and Energy Studies",
-        it: "University of Petroleum and Energy Studies"
-      },
-      para: {
-        en: "Bachelor of Technology in Mechatronics Engineering",
-        it: "Laurea in Tecnologia in Ingegneria Meccatronica"
-      },
-      imageSrc: UPESlogo2,
-      workImg: UPESlogo,
-      url: "https://www.upes.ac.in/school-of-advanced-engineering/",
-      description: [
-        {
-          en: "Mechatronics Engineering",
-          it: "Ingegneria Meccatronica"
-        }
-      ],
+  /* */
+education: [
+  {
+    /* Master's (University of Genoa) ko upar kar diya hai */
+    title: {
+      en: "University of Genoa",
+      it: "Università di Genova"
     },
-    {
-      title: {
-        en: "University of Genoa",
-        it: "Università di Genova"
+    para: {
+      en: "Msc in Robotics engineering",
+      it: "Msc in Ingegneria Robotica"
+    },
+    imageSrc: Unigelogo,
+    workImg: UnigeUr5e,
+    url: "https://unige.it/",
+    description: [
+      {
+        en: "Learned about advanced robotics concepts including robot kinematics, dynamics, control, perception, and machine learning applications in robotics.",
+        it: "Appreso concetti avanzati di robotica, tra cui cinematica, dinamica, controllo, percezione e applicazioni di apprendimento automatico nella robotica."
       },
-      para: {
-        en: "Msc in Robotics engineering",
-        it: "Msc in Ingegneria Robotica"
-      },
-      imageSrc: Unigelogo,
-      workImg: UnigeUr5e,
-      url: "https://unige.it/",
-      description: [
-
-        {
-          en: "Learned about advanced robotics concepts including robot kinematics, dynamics, control, perception, and machine learning applications in robotics.",
-          it: "Appreso concetti avanzati di robotica, tra cui cinematica, dinamica, controllo, percezione e applicazioni di apprendimento automatico nella robotica."
-        },
-
-      ],
-    }
-  ],
+    ],
+  },
+  {
+    /* Bachelor's (UPES) ab niche hai */
+    title: {
+      en: "University of Petroleum and Energy Studies",
+      it: "University of Petroleum and Energy Studies"
+    },
+    para: {
+      en: "Bachelor of Technology in Mechatronics Engineering",
+      it: "Laurea in Tecnologia in Ingegneria Meccatronica"
+    },
+    imageSrc: UPESlogo2,
+    workImg: UPESlogo,
+    url: "https://www.upes.ac.in/school-of-advanced-engineering/",
+    description: [
+      {
+        en: "Mechatronics Engineering",
+        it: "Ingegneria Meccatronica"
+      }
+    ],
+  }
+],
 
   projects: [
     {
@@ -252,7 +253,7 @@ const siteData = {
 
 // About Section --------------
 aboutParaOne: {
-  en: "Hi, I'm Dikshant Thakur, a passionate Robotics Enthusiast with over two years of experience in Industrial Automation.",
+  en: "Hi, I'm Dikshant Thakur, a passionate Robotics Enthusiast with over 2.5+ years of experience in Industrial Automation.",
           it: "Ciao, sono Dikshant Thakur, un grande appassionato di robotica con più di due anni di esperienza nell'automazione industriale."
 },
 aboutParaTwo: {
@@ -297,7 +298,7 @@ projectsCarouselItems: [
 
 
     {
-    media: "DigitalTwin",
+    media: "/videos/DigitalTwin.webm",
     type: 'video',
     category: "Robotics",
     title: {
@@ -358,7 +359,7 @@ projectsCarouselItems: [
     ]
   },
     {
-    media: "autonomous_vehicle",
+    media: "/videos/autonomous_vehicle.webm",
     type: 'video',
     category: "Robotics",
     title: {
@@ -381,7 +382,7 @@ projectsCarouselItems: [
     ]
   },
   {
-    media: "UVMS",
+    media: "/videos/UVMS.webm",
     type: 'video',
     category: "Robotics",
     title: {
@@ -404,7 +405,7 @@ projectsCarouselItems: [
     ]
   },
     {
-    media: "ManipTPIK",
+    media: "/videos/ManipulatorsTPIK.webm",
     type: 'video',
     category: "Robotics",
     title: {

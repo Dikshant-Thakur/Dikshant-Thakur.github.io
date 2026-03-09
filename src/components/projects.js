@@ -6,10 +6,10 @@ import data, { getText } from "../data"
 import "../styles/projects.scss"
 
 // Images/Videos import
-import DigitalTwin from "../images/workPhotos/DigitalTwin.webm"
-import autonomous_vehicle from "../images/workPhotos/autonomous_vehicle.webm"
-import UVMS from "../images/workPhotos/UVMS.webm"
-import ManipTPIK from "../images/workPhotos/ManipulatorsTPIK.webm"
+// import DigitalTwin from "../images/workPhotos/DigitalTwin.webm"
+// import autonomous_vehicle from "../images/workPhotos/autonomous_vehicle.webm"
+// import UVMS from "../images/workPhotos/UVMS.webm"
+// import ManipTPIK from "../images/workPhotos/ManipulatorsTPIK.webm"
 import PLC from "../images/workPhotos/PLC_w_PC.jpg"
 import Injection_Molding from "../images/workPhotos/Injection_Molding.jpg"
 
@@ -21,7 +21,7 @@ const Project = () => {
   const [currentModalData, setCurrentModalData] = useState(null);
 
   const mediaMap = {
-    DigitalTwin, autonomous_vehicle, UVMS, ManipTPIK, PLC, Injection_Molding
+    PLC, Injection_Molding
   };
 
   const carouselItems = data.projectsCarouselItems.map(item => ({
@@ -94,10 +94,10 @@ const Project = () => {
                   <div className="project-media-container">
                     {item.type === 'video' ? (
                       <div className="video-container">
-                        <video className="d-block" src={item.media} autoPlay muted loop playsInline />
+                        <video className="d-block" src={item.media} autoPlay muted loop playsInline preload="none" poster={item.poster}/>
                       </div>
                     ) : (
-                      <img className="d-block w-100" src={item.media} alt={item.title} />
+                      <img className="d-block w-100" src={item.media} alt={item.title} loading="lazy" />
                     )}
                   </div>
 

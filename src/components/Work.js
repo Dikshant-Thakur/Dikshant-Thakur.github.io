@@ -32,24 +32,27 @@ const Work = () => {
           <h1>{getText(data.sections.internships, language)}</h1>
           
           {/* UX Optimized 'Click to view' Indicator */}
-          <div style={{ display: "flex", justifyContent: "center", marginTop: "-5px", marginBottom: "35px" }}>
-            <span style={{ 
-              fontSize: "0.85rem", 
-              color: "inherit",       /* Aapki website ke theme ke hisaab se auto-adjust hoga */
-              opacity: 0.7,           /* Soft look dega jisse aankhon mein na chube */
-              padding: "6px 16px", 
-              borderRadius: "20px",   /* Ek modern capsule/pill shape dega */
-              border: "1px solid rgba(150, 150, 150, 0.3)", /* Bahut halka sa outline */
-              letterSpacing: "0.5px",
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              fontWeight: "500"
-            }}>
-              <span style={{ fontSize: "1rem" }}></span> 
-              {getText(data.sections.clickToView, language)}
-            </span>
-          </div>
+          {/* UX Optimized 'Click to view' Indicator - Highlighted Version */}
+            <div style={{ display: "flex", justifyContent: "center", marginTop: "-5px", marginBottom: "40px" }}>
+              <span style={{ 
+                fontSize: "0.85rem", 
+                color: "#0056b3",                /* Aapke Education link wala blue color */
+                background: "rgba(0, 86, 179, 0.08)", /* Bahut light blue background */
+                padding: "8px 20px", 
+                borderRadius: "30px",           /* Pure pill shape */
+                border: "1px solid rgba(0, 86, 179, 0.2)", /* Blueish border */
+                letterSpacing: "0.5px",
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+                fontWeight: "600",              /* Thoda bold taaki nazar pade */
+                boxShadow: "0 4px 12px rgba(0, 86, 179, 0.1)", /* Subtle glow effect */
+                transition: "all 0.3s ease"
+              }}>
+                <span style={{ fontSize: "1.1rem" }}></span> 
+                {getText(data.sections.clickToView, language)}
+              </span>
+            </div>
         </Fade>
         
         <div className="work-wrapper">
