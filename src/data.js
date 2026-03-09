@@ -118,7 +118,7 @@ education: [
       it: "University of Petroleum and Energy Studies"
     },
     para: {
-      en: "Bachelor of Technology in Mechatronics Engineering",
+      en: "B.Tech in Mechatronics Engineering",
       it: "Laurea in Tecnologia in Ingegneria Meccatronica"
     },
     imageSrc: UPESlogo2,
