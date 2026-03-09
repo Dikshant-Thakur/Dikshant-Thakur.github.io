@@ -475,7 +475,7 @@ projectsCarouselItems: [
 
   contact: {
     subtitle: {
-      en: "Feel free to reach out for collaborations or just a friendly hello!\nAnd Yes one more thing, don't forget to SMILE :)",
+      en: "Feel free to reach out for collaborations or just a friendly hi!\nAnd Yes one more thing, don't forget to SMILE :)",
       it: "Sentiti libero di contattarmi per collaborazioni o anche solo per un saluto!\nE sì, un'altra cosa: non dimenticare di SORRIDERE :)"
     },
     items: [
