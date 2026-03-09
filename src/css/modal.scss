@@ -1,0 +1,417 @@
+@import "./../styles/include-media.scss";
+
+/* This class will be added to the body when modal is open */
+body.modal-open {
+  overflow: hidden; /* Simply prevent scrolling, no positioning tricks */
+}
+
+.modalBackground {
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    /* Pure blur effect - no darkening */
+    background: transparent;
+    backdrop-filter: blur(15px); /* Strong blur to direct focus to modal */
+    -webkit-backdrop-filter: blur(15px);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    
+    /* Entrance animation for background - all devices */
+    animation: fadeInBackground 0.3s ease-out;
+    
+    /* Closing animation - all devices */
+    &.closing {
+      animation: fadeOutBackground 0.3s ease-in forwards;
+    }
+  }
+  
+  /* Background fade-in animation */
+  @keyframes fadeInBackground {
+    from {
+      backdrop-filter: blur(0px);
+      -webkit-backdrop-filter: blur(0px);
+    }
+    to {
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+    }
+  }
+  
+  /* Background fade-out animation */
+  @keyframes fadeOutBackground {
+    from {
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+    }
+    to {
+      backdrop-filter: blur(0px);
+      -webkit-backdrop-filter: blur(0px);
+    }
+  }
+  
+  .modalContainer {
+    width: 80vw;
+    max-width: 1000px; /* Set to 1000px as requested */
+    max-height: 90vh;
+    border-radius: 12px;
+    
+    /* Balanced frosted glass effect - readable but stylish */
+    background: rgba(255, 255, 255, 0.65); /* More opaque for readability */
+    backdrop-filter: blur(25px) saturate(120%);
+    -webkit-backdrop-filter: blur(25px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3), 
+                0 10px 40px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    
+    /* Fallback for browsers that don't support backdrop-filter */
+    @supports not (backdrop-filter: blur(25px)) {
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+    
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    overflow: auto;
+    
+    /* Entrance animation - all devices */
+    animation: modalSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: center;
+    
+    /* Closing animation - all devices */
+    &.closing {
+      animation: modalSlideOut 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    
+    @include media(">=phone", "<lgphone") {
+      width: 95vw;
+      padding: 15px;
+    }
+    @include media(">=lgphone", "<tablet") {
+      width: 90vw;
+      padding: 20px;
+    }
+    @include media(">=tablet", "<desktop") {
+      width: 85vw;
+    }
+  }
+  
+  /* Modal entrance animation - smooth scale + fade */
+  @keyframes modalSlideIn {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+  
+  /* Modal exit animation - smooth scale + fade */
+  @keyframes modalSlideOut {
+    0% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+  }
+  
+  /* Content fade-in animation with upward motion */
+  @keyframes contentFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .modalContainer .title {
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 1em;
+    
+    /* Content animation - all devices */
+    animation: contentFadeIn 0.5s ease-out 0.1s both;
+    h1{
+      margin-top: 0px;
+      line-height: 1.2;
+      font-size: 2.4rem; /* Consistent with main page 80% scaling */
+
+      @include media(">=phone", "<lgphone") {
+        font-size: 1.6rem;       
+      }
+      @include media(">=lgphone", "<tablet") {
+        font-size: 1.8rem;
+      }
+      @include media(">=tablet", "<desktop") {
+        font-size: 2rem;
+      }
+    }
+
+    h2{
+      line-height: 1.2;
+      font-size: 1.2rem; /* Consistent with site subtitle sizing */
+      @include media(">=phone", "<lgphone") {
+        font-size: 0.9rem;       
+      }
+      @include media(">=lgphone", "<tablet") {
+        font-size: 1rem;
+      }
+      @include media(">=tablet", "<desktop") {
+        font-size: 1.1rem;
+      }
+    }
+  }
+  
+  .titleCloseBtn {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .titleCloseBtn button {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem; /* Reduced from 2rem for consistency */
+    cursor: pointer;
+    
+    h3 {
+      margin: 0;
+      font-size: 1.5rem; /* Match button font size for close icon */
+      line-height: 1;
+    }
+  }
+  
+  /* =========================================================
+     UX Optimized Modal Navigation Buttons 
+     ========================================================= */
+  .modal-nav-btn {
+    /* Fixed outside the modal on desktop for maximum visibility */
+    position: fixed; 
+    top: 50%;
+    transform: translateY(-50%);
+    
+    /* Modern Glassmorphic High-Contrast Circle */
+    background: rgba(15, 15, 15, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    
+    width: 65px;
+    height: 65px;
+    border-radius: 50%; /* Perfect circle for desktop */
+    
+    display: flex;
+    flex-direction: column; /* Arrow up, text down */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10005; /* Must be above everything */
+    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    &:hover {
+      background: rgba(0, 0, 0, 1);
+      border-color: rgba(255, 255, 255, 0.6);
+      /* Pop-out effect on hover */
+      transform: translateY(-50%) scale(1.15); 
+    }
+    
+    &:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+    
+    /* Big, clear arrow */
+    .nav-arrow {
+      font-size: 2rem;
+      line-height: 0.8;
+      font-weight: 300;
+    }
+    
+    /* Small supportive text */
+    .nav-text {
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-top: 2px;
+    }
+
+    /* --------------------------------------
+       MOBILE SPECIFIC UX (Pill Shape)
+       -------------------------------------- */
+    @include media("<desktop") {
+      /* Reset position to fit inside the bottom of the modal */
+      position: absolute;
+      top: auto;
+      bottom: 20px;
+      transform: none;
+      
+      /* Change from circle to Pill shape */
+      width: auto;
+      height: auto;
+      flex-direction: row; /* Arrow and text side-by-side */
+      gap: 6px;
+      padding: 10px 20px;
+      border-radius: 30px;
+      
+      background: #111; /* Solid dark for maximum contrast on small screens */
+      
+      &:hover {
+        transform: scale(1.05); /* Simplified animation for mobile */
+      }
+      
+      &:active {
+        transform: scale(0.95);
+      }
+      
+      .nav-arrow {
+        font-size: 1.2rem;
+        line-height: 1;
+      }
+      
+      .nav-text {
+        font-size: 0.8rem;
+        margin-top: 0;
+      }
+    }
+  }
+  
+  /* Desktop Placements - Floating on the far edges */
+  .modal-prev {
+    left: 2vw; 
+    
+    /* Mobile Placements - Inside modal bottom */
+    @include media("<desktop") {
+      left: 15px; 
+    }
+  }
+  
+  .modal-next {
+    right: 2vw; 
+    
+    @include media("<desktop") {
+      right: 15px;
+    }
+  }
+  
+  .modalContainer .body {
+    justify-content: center;
+    
+    /* Desktop: side-by-side layout with equal heights */
+    @include media(">=desktop") {
+      display: flex;
+      align-items: stretch; /* Make both image and text same height */
+      gap: 1.5rem; /* Add space between image and text */
+    }
+    
+    /* Mobile: stacked layout (default) */
+    @include media("<desktop") {
+      display: block; /* Ensure stacked layout on mobile */
+      padding-bottom: 60px; /* Add extra padding at bottom so buttons don't hide content */
+    }
+    
+    /* Content animation - all devices */
+    animation: contentFadeIn 0.6s ease-out 0.2s both; /* Slight delay for cascade effect */
+
+    .modal-media {
+      border-radius: 8px; /* Add subtle rounding */
+      
+      /* Display-only styling for videos */
+      &[autoplay] {
+        cursor: default; /* No pointer cursor since videos aren't interactive */
+        user-select: none; /* Prevent text selection on video */
+      }
+      
+      /* Desktop: flex layout with equal heights */
+      @include media(">=desktop") {
+        width: 50%;
+        flex: 1; /* Allow to grow and match text height */
+        object-fit: contain; /* Don't crop the media */
+        align-self: stretch; /* Match container height */
+        min-height: 0; /* Allow flex shrinking */
+      }
+      
+      /* Mobile: full width stacked */
+      @include media(">=phone", "<lgphone") {
+        width: 100%;
+        margin-bottom: 1rem;
+        max-height: 60vh; /* Prevent oversized media on mobile */      
+      }
+      @include media(">=lgphone", "<tablet") {
+        width: 100%;
+        margin-bottom: 1rem;
+        max-height: 60vh;
+      }
+      @include media(">=tablet", "<desktop") {
+        width: 100%;
+        margin-bottom: 1rem;
+        max-height: 60vh;
+      }
+    }
+    ul{
+      margin-top: 0;
+      
+      /* Desktop: flex layout with equal heights */
+      @include media(">=desktop") {
+        width: 50%;
+        flex: 1; /* Allow to grow and match image height */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        font-size: 1.2rem; /* Desktop: matches site body text after 80% scaling */
+      }
+      
+      /* Mobile: standard block layout */
+      @include media("<desktop") {
+        width: 100%;
+        display: block;
+      }
+      
+      /* Consistent font sizes and improved readability */
+      line-height: 1.6; /* Better readability across all devices */
+      
+      @include media(">=phone", "<lgphone") {
+        font-size: 0.9rem; /* Original mobile value */       
+      }
+      @include media(">=lgphone", "<tablet") {
+        font-size: 1rem; /* Original mobile value */
+      }
+      @include media(">=tablet", "<desktop") {
+        font-size: 1.1rem; /* Original mobile value */
+      }
+
+      li{
+        padding: 0.5em 0.5em 0.8em 1em; /* Increased spacing for better readability */
+        margin-bottom: 0.4em; /* Add space between list items */
+        
+        a {
+          color: #333;
+          text-decoration: underline;
+          transition: color 0.3s ease;
+          
+          &:hover {
+            color: #000;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }

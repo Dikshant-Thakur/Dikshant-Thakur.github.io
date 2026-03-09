@@ -1,0 +1,78 @@
+.background-wallpaper {
+  position: fixed; /* Absolute ki jagah Fixed better hai full background ke liye */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Scrollbars chupane ke liye */
+  pointer-events: none;
+  z-index: -1;
+}
+
+// Ye wo track hai jo actually move karega
+.sliding-track {
+  display: flex;
+  width: 200%; /* Double width taaki 2 screens jitna content aa sake */
+  height: 100%;
+  animation: linearMove 60s linear infinite;
+  
+  &:hover {
+    animation-play-state: paused; /* Optional: Mouse upar jane par ruk jaye */
+  }
+}
+
+// Har icon set 1 screen width lega
+.icon-set {
+  position: relative;
+  width: 50%; /* 200% ka 50% = 100% viewport width */
+  height: 100%;
+  flex-shrink: 0;
+}
+
+// Icon Wrapper styles (jo humne pichle step me banaya tha)
+.icon-wrapper {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease-out;
+  pointer-events: auto; /* Mouse interaction ke liye zaroori */
+}
+
+.wallpaper-icon {
+  width: 100px;
+  height: 100px;
+  pointer-events: none;
+  animation: slowRotate 60s linear infinite;
+}
+
+// Animation definition
+@keyframes linearMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* 200% width ka aadha move karega */
+  }
+}
+
+// Rotation Animation
+@keyframes slowRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+// Media queries
+@media (max-width: 768px) {
+  .wallpaper-icon {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 576px) {
+  .wallpaper-icon {
+    width: 30px;
+    height: 30px;
+  }
+}

@@ -1,0 +1,137 @@
+.contact-section {
+  padding: 4rem 1.5rem;
+  text-align: center;
+  background-color: transparent; // Ya background color jo aap chahein
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #333; // Dark text color
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 3rem;
+    
+    /* Ye line add karein taaki \n kaam kare */
+    white-space: pre-line; 
+    line-height: 1.6; /* Thoda space badhane ke liye */
+  }
+  .contact-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .contact-card {
+  background: #fff;
+  width: 160px;
+  height: 160px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  // Transition zaroori hai smooth feel ke liye
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(0,0,0,0.05);
+
+  .icon-box {
+    // ... (purana code same rahega)
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: transform 0.3s ease; // Icon ke liye bhi transition
+      }
+  }
+
+    .contact-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #444;
+      transition: color 0.3s ease;
+    }
+
+    // Hover Effects
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      background-color: var(--hover-bg, #fff); // Uses the dynamic color from JS
+
+      .icon-box img {
+        transform: scale(1.1);
+      }
+      
+      .contact-name {
+        color: #000;
+      }
+    }
+    &:active {
+        transform: scale(0.95); /* Touch karne par thoda chota hoga */
+        transition-duration: 0.1s; /* Turant react karega */
+        }
+  }
+
+  // --- Responsive Design ---
+  
+  // Tablet / iPad (max-width: 768px)
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 2rem;
+    }
+    
+    .contact-grid {
+      gap: 1.5rem;
+    }
+
+    .contact-card {
+      width: 140px;
+      height: 140px;
+      
+      .icon-box {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+
+  // Mobile (max-width: 480px)
+  @media (max-width: 480px) {
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); // Force 2 columns Grid
+      gap: 1rem;
+      justify-items: center;
+    }
+
+    .contact-card {
+      width: 100%; // Fill the grid cell
+      max-width: 150px; // But don't get too big
+      height: 130px;
+      
+      .icon-box {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 10px;
+      }
+
+      .contact-name {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
