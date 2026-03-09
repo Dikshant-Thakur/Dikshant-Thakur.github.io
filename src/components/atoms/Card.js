@@ -31,8 +31,8 @@ const Card = ({id, heading, paragraph, imgUrl, setOpenModal, setId}) => {
             muted
             loop
             playsInline
-            // loading="lazy"
-            preload="none"
+            loading="lazy"
+            // preload="none"
           />
           <div className="video-overlay" />
         </div>

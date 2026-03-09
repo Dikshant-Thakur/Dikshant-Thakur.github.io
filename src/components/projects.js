@@ -6,10 +6,10 @@ import data, { getText } from "../data"
 import "../styles/projects.scss"
 
 // Images/Videos import
-// import DigitalTwin from "../images/workPhotos/DigitalTwin.webm"
-// import autonomous_vehicle from "../images/workPhotos/autonomous_vehicle.webm"
-// import UVMS from "../images/workPhotos/UVMS.webm"
-// import ManipTPIK from "../images/workPhotos/ManipulatorsTPIK.webm"
+import DigitalTwin from "../images/workPhotos/DigitalTwin.webm"
+import autonomous_vehicle from "../images/workPhotos/autonomous_vehicle.webm"
+import UVMS from "../images/workPhotos/UVMS.webm"
+import ManipTPIK from "../images/workPhotos/ManipulatorsTPIK.webm"
 import PLC from "../images/workPhotos/PLC_w_PC.jpg"
 import Injection_Molding from "../images/workPhotos/Injection_Molding.jpg"
 
@@ -21,7 +21,7 @@ const Project = () => {
   const [currentModalData, setCurrentModalData] = useState(null);
 
   const mediaMap = {
-    PLC, Injection_Molding
+    DigitalTwin, autonomous_vehicle, UVMS, ManipTPIK, PLC, Injection_Molding
   };
 
   const carouselItems = data.projectsCarouselItems.map(item => ({

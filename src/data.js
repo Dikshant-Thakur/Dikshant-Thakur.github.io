@@ -253,7 +253,7 @@ education: [
 
 // About Section --------------
 aboutParaOne: {
-  en: "Hi, I'm Dikshant Thakur, a passionate Robotics Enthusiast with over 2.5+ years of experience in Industrial Automation.",
+  en: "Hi, I'm Dikshant Thakur, a passionate Robotics Enthusiast with over two years of experience in Industrial Automation.",
           it: "Ciao, sono Dikshant Thakur, un grande appassionato di robotica con più di due anni di esperienza nell'automazione industriale."
 },
 aboutParaTwo: {
@@ -298,7 +298,7 @@ projectsCarouselItems: [
 
 
     {
-    media: "/videos/DigitalTwin.webm",
+    media: "DigitalTwin",
     type: 'video',
     category: "Robotics",
     title: {
@@ -359,7 +359,7 @@ projectsCarouselItems: [
     ]
   },
     {
-    media: "/videos/autonomous_vehicle.webm",
+    media: "autonomous_vehicle",
     type: 'video',
     category: "Robotics",
     title: {
@@ -382,7 +382,7 @@ projectsCarouselItems: [
     ]
   },
   {
-    media: "/videos/UVMS.webm",
+    media: "UVMS",
     type: 'video',
     category: "Robotics",
     title: {
@@ -405,7 +405,7 @@ projectsCarouselItems: [
     ]
   },
     {
-    media: "/videos/ManipulatorsTPIK.webm",
+    media: "ManipTPIK",
     type: 'video',
     category: "Robotics",
     title: {
