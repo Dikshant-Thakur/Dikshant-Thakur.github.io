@@ -257,7 +257,7 @@ aboutParaOne: {
           it: "Ciao, sono Dikshant Thakur, un grande appassionato di robotica con più di due anni di esperienza nell'automazione industriale."
 },
 aboutParaTwo: {
-  en: "I am doing my Master's degree (Thesis Completed) in Robotics Engineering from University of Genoa (Italy) and I earned Bachelor's degree in Mechatronics Engineering from the University of Petroleum and Energy Studies (India)",
+  en: "I am doing my Master's degree (Thesis Completed) in Robotics Engineering from University of Genoa (Italy) and I earned Bachelor's degree in Mechatronics Engineering from the University of Petroleum and Energy Studies (India).",
           it: "Sto conseguendo la laurea magistrale (tesi completata) presso l'Università di Genova (Italia) e ho conseguito la laurea triennale in Ingegneria meccatronica presso l'Università di studi sul petrolio e l'energia (India)."
 },
 aboutParaThree: {
