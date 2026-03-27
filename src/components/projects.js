@@ -75,6 +75,27 @@ const Project = () => {
       <div className="container">
         <Fade bottom cascade distance="20px">
           <h1>{getText(data.sections.projects, language)}</h1>
+          {/* Work.js wala same code yahan add karein */}
+          <div style={{ display: "flex", justifyContent: "center", marginTop: "-5px", marginBottom: "40px" }}>
+            <span style={{ 
+              fontSize: "0.85rem", 
+              color: "#0056b3",
+              background: "rgba(0, 86, 179, 0.08)", 
+              padding: "8px 20px", 
+              borderRadius: "30px",           
+              border: "1px solid rgba(0, 86, 179, 0.2)", 
+              letterSpacing: "0.5px",
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+              fontWeight: "600",              
+              boxShadow: "0 4px 12px rgba(0, 86, 179, 0.1)", 
+              transition: "all 0.3s ease"
+            }}>
+              <span style={{ fontSize: "1.1rem" }}></span> 
+              {getText(data.sections.clickToView, language)}
+            </span>
+          </div>
         </Fade>
         
         <div className="project-wrapper">
