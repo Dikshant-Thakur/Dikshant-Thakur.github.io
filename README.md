@@ -2,14 +2,15 @@
 
 My name is Dikshant Thakur , I am robotics enthusiat doing my masters (about to graduate) from University of Genoa, Italy. 
 
-```
-https://dikshant-thakur.github.io/
-```
 
 This repo contains the source code to my personal website, which is inspired by Steven. 
 
 
 Checkout my site at: 
+
+```
+https://dikshant-thakur.github.io/
+```
 
 ## Development
 
