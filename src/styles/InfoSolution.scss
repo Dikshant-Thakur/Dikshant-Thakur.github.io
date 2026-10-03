@@ -1,5 +1,5 @@
-#nvidia .container {
-  max-width: 1000px; /* Ensure NVIDIA section doesn't exceed 1000px */
+#infosolution .container {
+  max-width: 1000px; /* Ensure Infso Solution section doesn't exceed 1000px */
   margin: 0 auto; /* Center the container */
   padding: 0 32px !important; /* Add horizontal padding to ensure spacing from edges */
   
@@ -35,7 +35,7 @@
     color: #666;
     font-weight: 400;
   }
-  .nvidia-section {
+  .infosolution-section {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -113,7 +113,7 @@
       }
     }
 
-          .nvidia-carousel {
+          .infosolution-carousel {
         width: 100%;
         max-width: 1000px; /* Ensure carousel itself doesn't exceed 1000px */
         margin: 0 auto;
@@ -235,7 +235,7 @@
         }
         
         // Reduce carousel interval for faster response on iPhone
-        .nvidia-carousel {
+        .infosolution-carousel {
           .carousel-item {
             // Disable hardware acceleration for videos on iPhone
             video {

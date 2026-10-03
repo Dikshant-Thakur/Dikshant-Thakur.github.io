@@ -12,6 +12,7 @@ import Footer from "../components/Footer"
 import Project from "../components/projects"
 import Education from "../components/Education"
 import Thesis from "../components/Thesis"
+import InfoSolution from "../components/InfoSolution"
 
 const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -42,6 +43,7 @@ const IndexPage = () => {
         <SEO title="Dikshant Thakur Portfolio" />
         <Header></Header>
         <About></About>
+        <InfoSolution></InfoSolution>
         <Project></Project>
         <Education></Education>
         <Thesis></Thesis>

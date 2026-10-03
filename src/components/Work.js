@@ -20,7 +20,7 @@ const Work = () => {
   };
   
   const handleNext = () => {
-    if (id < data.projects.length - 1) {
+    if (id < data.work.length - 1) {
       setId(id + 1);
     }
   };
@@ -58,7 +58,7 @@ const Work = () => {
         <div className="work-wrapper">
           <div className="grid">
             <Fade>
-              {data.projects.map((project, index) => (
+              {data.work.map((project, index) => (
                 <Card
                   key={index}
                   id={index}
@@ -76,7 +76,7 @@ const Work = () => {
           {openModal&&<Modal 
             closeModal={setOpenModal} 
             id={id} 
-            totalItems={data.projects.length}
+            totalItems={data.work.length}
             onPrevious={handlePrevious}
             onNext={handleNext}
           />}

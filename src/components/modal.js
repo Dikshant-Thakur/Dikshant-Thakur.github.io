@@ -15,7 +15,7 @@ export default function Modal({ closeModal, id, type = "project", totalItems = 0
   const [isClosing, setIsClosing] = useState(false);
   
   // Determine which data to use based on the type
-  const content = type === "project" ? data.projects[id] : data.education[id];
+  const content = type === "project" ? data.work[id] : data.education[id];
   
   // Enhanced close function with animation
   const handleClose = useCallback(() => {
